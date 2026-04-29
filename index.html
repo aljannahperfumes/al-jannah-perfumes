@@ -2,119 +2,89 @@
 <html>
 <head>
   <title>Al Jannah Perfumes</title>
-
   <style>
     body {
       font-family: Arial;
       text-align: center;
       background: #f5f5f5;
     }
-
     h1 {
-      color: darkgreen;
+      color: green;
     }
-
     .product {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin: 10px;
-      display: inline-block;
       background: white;
+      padding: 15px;
+      margin: 20px;
       border-radius: 10px;
-      width: 200px;
     }
-
     button {
       padding: 10px;
-      background: green;
-      color: white;
+      margin: 5px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-
-    input {
-      padding: 8px;
-      width: 200px;
-    }
+    .cart-btn { background: orange; }
+    .order-btn { background: green; color: white; }
   </style>
-
 </head>
 
 <body>
 
-<h1>🌿 Al Jannah Perfumes</h1>
-<p>Premium Attar Collection</p>
-
-<!-- PRODUCTS -->
+<h1>Al Jannah Perfumes 🌿</h1>
+<p>Best Attar Collection</p>
 
 <div class="product">
   <h3>Oud Attar</h3>
-  <p>Price: ₹500</p>
-  <button onclick="add(500, 'Oud Attar')">Add to Cart</button>
+  <p>₹500</p>
+  <button class="cart-btn" onclick="addToCart('Oud Attar',500)">Add to Cart</button>
 </div>
 
 <div class="product">
   <h3>Rose Attar</h3>
-  <p>Price: ₹300</p>
-  <button onclick="add(300, 'Rose Attar')">Add to Cart</button>
+  <p>₹300</p>
+  <button class="cart-btn" onclick="addToCart('Rose Attar',300)">Add to Cart</button>
 </div>
 
-<div class="product">
-  <h3>Musk Attar</h3>
-  <p>Price: ₹400</p>
-  <button onclick="add(400, 'Musk Attar')">Add to Cart</button>
-</div>
-
-<hr>
-
-<!-- CART INFO -->
-
-<h2 id="items">Items: 0</h2>
-<h2 id="total">Total: ₹0</h2>
-
-<!-- CUSTOMER DETAILS -->
-
-<h3>Customer Details</h3>
+<h2>Cart</h2>
+<p id="cartItems">Items: 0</p>
+<p id="total">Total: ₹0</p>
 
 <input type="text" id="name" placeholder="Your Name"><br><br>
 <input type="text" id="address" placeholder="Your Address"><br><br>
 
-<!-- ORDER BUTTON -->
-
-<button onclick="orderNow()">Order Now on WhatsApp</button>
+<button class="order-btn" onclick="orderNow()">Order Now</button>
 
 <script>
 let count = 0;
 let total = 0;
-let cartItems = "";
+let items = "";
 
-function add(price, name) {
+function addToCart(name, price) {
   count++;
   total += price;
-  cartItems += name + ", ";
+  items += name + ", ";
 
-  document.getElementById("items").innerText = "Items: " + count;
+  document.getElementById("cartItems").innerText = "Items: " + count;
   document.getElementById("total").innerText = "Total: ₹" + total;
 }
 
 function orderNow() {
-  let customerName = document.getElementById("name").value;
+  let customer = document.getElementById("name").value;
   let address = document.getElementById("address").value;
 
-  if (customerName === "" || address === "") {
+  if (customer == "" || address == "") {
     alert("Please enter name and address");
     return;
   }
 
-  let message =
-    "Order from Al Jannah Perfumes%0A%0A" +
-    "Name: " + customerName + "%0A" +
-    "Address: " + address + "%0A" +
-    "Items: " + cartItems + "%0A" +
-    "Total: ₹" + total;
+  let message = "Order from Al Jannah Perfumes%0A"
+    + "Name: " + customer + "%0A"
+    + "Address: " + address + "%0A"
+    + "Items: " + items + "%0A"
+    + "Total: ₹" + total;
 
-  window.open("https://wa.me/919876543210?text=" + message);
+  window.open("https://wa.me/918089900240?text=" + message);
 }
 </script>
 
