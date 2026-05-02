@@ -11,24 +11,34 @@
 <style>
 body { font-family: Arial; margin: 0; background: #f3f3f3; }
 
+/* HEADER */
 .main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: linear-gradient(90deg, #131921, #232f3e);
   color: white;
-  padding: 15px 30px;
+  padding: 15px 20px;
 }
 
-.logo { font-size: 24px; font-weight: bold; }
+.logo { font-size: 22px; font-weight: bold; }
+
+#search {
+  padding: 8px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+}
 
 .nav a {
   color: white;
-  margin-left: 20px;
+  margin-left: 15px;
   text-decoration: none;
 }
+
 .nav a:hover { color: orange; }
 
+/* PRODUCTS */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -42,6 +52,11 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.product:hover {
+  transform: scale(1.05);
 }
 
 .product img {
@@ -50,6 +65,7 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   object-fit: cover;
 }
 
+/* BUTTONS */
 .cart-btn {
   background: orange;
   border: none;
@@ -57,6 +73,8 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   width: 100%;
   cursor: pointer;
 }
+
+.cart-btn:hover { background: darkorange; }
 
 .order-btn {
   background: green;
@@ -68,6 +86,8 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   cursor: pointer;
 }
 
+.order-btn:hover { background: darkgreen; }
+
 .pay-btn {
   background: blue;
   color: white;
@@ -78,6 +98,7 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   cursor: pointer;
 }
 
+/* CART */
 .cart-box {
   background: white;
   margin: 20px;
@@ -99,12 +120,16 @@ input {
 <header class="main-header">
   <div class="logo">🌿 Al Jannah Perfumes</div>
 
+  <input type="text" id="search" placeholder="Search attar..." onkeyup="searchProduct()">
+
   <div class="nav">
     <a href="#">Home</a>
     <a href="#">Products</a>
     <a href="https://instagram.com/aljannahperfumes" target="_blank">Instagram</a>
   </div>
 </header>
+
+<h2 style="padding-left:20px;">Best Attar Shop in Kozhikode</h2>
 
 <div class="products">
 
@@ -159,6 +184,21 @@ function addToCart(name, price) {
 
   document.getElementById("items").innerText = "Items: " + count;
   document.getElementById("total").innerText = "Total: ₹" + total;
+}
+
+function searchProduct() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let products = document.getElementsByClassName("product");
+
+  for (let i = 0; i < products.length; i++) {
+    let text = products[i].innerText.toLowerCase();
+
+    if (text.includes(input)) {
+      products[i].style.display = "block";
+    } else {
+      products[i].style.display = "none";
+    }
+  }
 }
 
 function orderNow() {
