@@ -1,71 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Al Jannah Perfumes</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      background: #f5f5f5;
-    }
-    h1 {
-      color: green;
-    }
-    .product {
-      background: white;
-      padding: 15px;
-      margin: 20px;
-      border-radius: 10px;
-    }
-    button {
-      padding: 10px;
-      margin: 5px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .cart-btn { background: orange; }
-    .order-btn { background: green; color: white; }
-  </style>
+<title>Al Jannah Perfumes</title>
+
+<style>
+body { font-family: Arial; margin: 0; background: #f3f3f3; }
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #131921, #232f3e);
+  color: white;
+  padding: 15px 30px;
+}
+
+.logo { font-size: 24px; font-weight: bold; }
+
+.nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+.nav a:hover { color: orange; }
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.cart-btn {
+  background: orange;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.order-btn {
+  background: green;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.pay-btn {
+  background: blue;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.cart-box {
+  background: white;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+input {
+  width: 95%;
+  padding: 10px;
+  margin: 5px 0;
+}
+</style>
+
 </head>
 
 <body>
 
-<h1>Al Jannah Perfumes 🌿</h1>
-<p>Best Attar Collection</p>
+<header class="main-header">
+  <div class="logo">🌿 Al Jannah Perfumes</div>
+
+  <div class="nav">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="https://instagram.com/aljannahperfumes" target="_blank">Instagram</a>
+  </div>
+</header>
+
+<div class="products">
 
 <div class="product">
-  <h3>Oud Attar</h3>
-  <p>₹500</p>
-  <button class="cart-btn" onclick="addToCart('Oud Attar',500)">Add to Cart</button>
+<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f">
+<h3>Marj Attar</h3>
+<p style="color:red;">🔥 Best Seller</p>
+<p>3ML - ₹200</p>
+<button class="cart-btn" onclick="addToCart('Marj Attar (3ML)',200)">Add to Cart</button>
 </div>
 
 <div class="product">
-  <h3>Rose Attar</h3>
-  <p>₹300</p>
-  <button class="cart-btn" onclick="addToCart('Rose Attar',300)">Add to Cart</button>
+<img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
+<h3>Musk Rijali</h3>
+<p>3ML - ₹200</p>
+<button class="cart-btn" onclick="addToCart('Musk Rijali (3ML)',200)">Add to Cart</button>
 </div>
 
-<h2>Cart</h2>
-<p id="cartItems">Items: 0</p>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
+<h3>Maryam Attar</h3>
+<p>3ML - ₹150</p>
+<button class="cart-btn" onclick="addToCart('Maryam Attar (3ML)',150)">Add to Cart</button>
+</div>
+
+</div>
+
+<div class="cart-box">
+
+<h2>🛒 Cart</h2>
+<p id="items">Items: 0</p>
 <p id="total">Total: ₹0</p>
 
-<input type="text" id="name" placeholder="Your Name"><br><br>
-<input type="text" id="address" placeholder="Your Address"><br><br>
+<h3>Customer Details</h3>
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="address" placeholder="Your Address">
 
-<button class="order-btn" onclick="orderNow()">Order Now</button>
+<button class="order-btn" onclick="orderNow()">💬 Order via WhatsApp</button>
+<button class="pay-btn" onclick="payNow()">💳 Pay via UPI</button>
+
+</div>
 
 <script>
 let count = 0;
 let total = 0;
-let items = "";
+let cartItems = "";
 
 function addToCart(name, price) {
   count++;
   total += price;
-  items += name + ", ";
+  cartItems += name + ", ";
 
-  document.getElementById("cartItems").innerText = "Items: " + count;
+  document.getElementById("items").innerText = "Items: " + count;
   document.getElementById("total").innerText = "Total: ₹" + total;
 }
 
@@ -73,18 +160,23 @@ function orderNow() {
   let customer = document.getElementById("name").value;
   let address = document.getElementById("address").value;
 
-  if (customer == "" || address == "") {
-    alert("Please enter name and address");
+  if(customer == "" || address == "") {
+    alert("Enter name and address");
     return;
   }
 
-  let message = "Order from Al Jannah Perfumes%0A"
-    + "Name: " + customer + "%0A"
-    + "Address: " + address + "%0A"
-    + "Items: " + items + "%0A"
-    + "Total: ₹" + total;
+  let message =
+  "🛒 Order - Al Jannah Perfumes\n\n" +
+  "👤 Name: " + customer + "\n" +
+  "📍 Address: " + address + "\n\n" +
+  "🧴 Items: " + cartItems + "\n" +
+  "💰 Total: ₹" + total;
 
-  window.open("https://wa.me/918089900240?text=" + message);
+  window.open("https://wa.me/918089900240?text=" + encodeURIComponent(message));
+}
+
+function payNow() {
+  window.location.href = "upi://pay?pa=919946800240@federal&pn=Al%20Jannah%20Perfumes&cu=INR";
 }
 </script>
 
