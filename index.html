@@ -4,7 +4,7 @@
 
 <title>Al Jannah Perfumes | Premium Attar Shop</title>
 
-<meta name="description" content="Premium attar perfumes at best price. Order now via WhatsApp.">
+<meta name="description" content="Premium attar perfumes. Order now via WhatsApp.">
 
 <meta name="google-site-verification" content="0hjziN4RgVmMMnO9IO4Kpgf-Sqru6mNv9PeYg4LcTvE" />
 
@@ -23,11 +23,7 @@ body { margin:0; font-family:Arial; background:#f5f5f5; }
 
 .logo { font-size:22px; font-weight:bold; color:gold; }
 
-#search {
-  padding:8px;
-  border-radius:5px;
-  border:none;
-}
+#search { padding:8px; border-radius:5px; border:none; }
 
 /* BANNER */
 .banner {
@@ -69,48 +65,18 @@ body { margin:0; font-family:Arial; background:#f5f5f5; }
 }
 
 /* BUTTONS */
-.cart-btn {
-  background:orange;
-  border:none;
-  padding:10px;
-  width:100%;
-  cursor:pointer;
-  border-radius:5px;
-}
-
-.order-btn {
-  background:green;
-  color:white;
-  padding:12px;
-  width:100%;
-  border:none;
-  margin-top:10px;
-  border-radius:5px;
-}
-
-.pay-btn {
-  background:#007bff;
-  color:white;
-  padding:12px;
-  width:100%;
-  border:none;
-  margin-top:10px;
-  border-radius:5px;
-}
+.cart-btn { background:orange; border:none; padding:10px; width:100%; border-radius:5px; }
+.order-btn { background:green; color:white; padding:12px; width:100%; border:none; margin-top:10px; border-radius:5px; }
+.pay-btn { background:#007bff; color:white; padding:12px; width:100%; border:none; margin-top:10px; border-radius:5px; }
 
 /* CART */
-.cart-box {
-  background:white;
-  margin:20px;
-  padding:15px;
-  border-radius:10px;
-}
+.cart-box { background:white; margin:20px; padding:15px; border-radius:10px; }
 
-/* POPUP */
-#cartPopup {
+/* POPUPS */
+#cartPopup, #successPopup {
   display:none;
   position:fixed;
-  top:25%;
+  top:30%;
   left:50%;
   transform:translateX(-50%);
   background:white;
@@ -119,11 +85,7 @@ body { margin:0; font-family:Arial; background:#f5f5f5; }
   box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
-input {
-  width:95%;
-  padding:10px;
-  margin:5px 0;
-}
+input { width:95%; padding:10px; margin:5px 0; }
 </style>
 
 </head>
@@ -136,12 +98,8 @@ input {
   <button onclick="openCart()">🛒</button>
 </header>
 
-<!-- BANNER -->
-<div class="banner">
-  Luxury Attar Collection ✨
-</div>
+<div class="banner">Luxury Attar Collection ✨</div>
 
-<!-- PRODUCTS -->
 <div class="products">
 
 <div class="product">
@@ -167,6 +125,23 @@ input {
 
 </div>
 
+<!-- REVIEWS -->
+<div style="padding:20px;">
+<h2>⭐ Customer Reviews</h2>
+
+<div style="background:white;padding:10px;margin:10px;border-radius:10px;">
+★★★★★ “Best attar smell ever!” - Customer
+</div>
+
+<div style="background:white;padding:10px;margin:10px;border-radius:10px;">
+★★★★★ “Long lasting and premium quality”
+</div>
+
+<div style="background:white;padding:10px;margin:10px;border-radius:10px;">
+★★★★★ “Super fast delivery”
+</div>
+</div>
+
 <!-- CART -->
 <div class="cart-box">
 <h2>🛒 Cart</h2>
@@ -180,12 +155,19 @@ input {
 <button class="pay-btn" onclick="payNow()">Pay via UPI</button>
 </div>
 
-<!-- POPUP -->
+<!-- CART POPUP -->
 <div id="cartPopup">
 <h3>Your Cart</h3>
 <p id="cartDetails"></p>
 <button onclick="closeCart()">Close</button>
 <button onclick="clearCart()">Clear</button>
+</div>
+
+<!-- SUCCESS POPUP -->
+<div id="successPopup">
+<h3>✅ Order Sent Successfully!</h3>
+<p>We will contact you soon.</p>
+<button onclick="closeSuccess()">OK</button>
 </div>
 
 <script>
@@ -202,9 +184,7 @@ document.getElementById("cartPopup").style.display="block";
 document.getElementById("cartDetails").innerText=cartItems+" | ₹"+total;
 }
 
-function closeCart(){
-document.getElementById("cartPopup").style.display="none";
-}
+function closeCart(){ document.getElementById("cartPopup").style.display="none"; }
 
 function clearCart(){
 count=0; total=0; cartItems="";
@@ -225,9 +205,17 @@ p[i].style.display=t.includes(input)?"block":"none";
 function orderNow(){
 let n=document.getElementById("name").value;
 let a=document.getElementById("address").value;
+
+if(n=="" || a==""){ alert("Enter details"); return; }
+
 let msg="Order:\n"+cartItems+"\n₹"+total+"\n"+n+"\n"+a;
+
 window.open("https://wa.me/918089900240?text="+encodeURIComponent(msg));
+
+document.getElementById("successPopup").style.display="block";
 }
+
+function closeSuccess(){ document.getElementById("successPopup").style.display="none"; }
 
 function payNow(){
 window.location.href="upi://pay?pa=919946800240@federal&pn=Al%20Jannah&cu=INR";
