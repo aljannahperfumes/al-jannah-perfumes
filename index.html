@@ -20,11 +20,20 @@ body{
   padding:50px 20px;
 }
 
-/* 🔥 BIG LOGO */
+/* LOGO FIX */
 .logo{
-  width:140px;  /* 👈 ഇവിടെ logo വലുതാണ് */
+  width:140px;
+  max-width:90%;
+  height:auto;
   margin-bottom:10px;
   filter: drop-shadow(0 0 12px gold);
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+  .logo{
+    width:110px;
+  }
 }
 
 h1{
@@ -131,7 +140,10 @@ input{
 
 <!-- HEADER -->
 <div class="header">
-  <img src="logo.png" class="logo">
+  <!-- LOGO FIXED -->
+  <img src="logo.png" class="logo"
+  onerror="this.src='https://via.placeholder.com/150'">
+
   <h1>Al Jannah Perfumes</h1>
   <p class="tag">Premium Attar Collection ✨</p>
 
