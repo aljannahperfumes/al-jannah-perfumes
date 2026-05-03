@@ -4,98 +4,109 @@
 
 <title>Al Jannah Perfumes | Premium Attar Shop</title>
 
-<meta name="description" content="Buy premium attar perfumes at best price. Order via WhatsApp.">
+<meta name="description" content="Premium attar perfumes at best price. Order now via WhatsApp.">
 
 <meta name="google-site-verification" content="0hjziN4RgVmMMnO9IO4Kpgf-Sqru6mNv9PeYg4LcTvE" />
 
 <style>
-body { font-family: Arial; margin: 0; background: #f3f3f3; }
+body { margin:0; font-family:Arial; background:#f5f5f5; }
 
+/* HEADER */
 .main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(90deg, #131921, #232f3e);
-  color: white;
-  padding: 15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#111;
+  color:white;
+  padding:15px;
 }
 
-.logo { font-size: 22px; font-weight: bold; }
+.logo { font-size:22px; font-weight:bold; color:gold; }
 
 #search {
-  padding: 8px;
-  width: 180px;
-  border-radius: 5px;
-  border: none;
+  padding:8px;
+  border-radius:5px;
+  border:none;
 }
 
-.nav a {
-  color: white;
-  margin-left: 10px;
-  text-decoration: none;
+/* BANNER */
+.banner {
+  background:url('https://images.unsplash.com/photo-1595425970377-c9703cf48b6d') center/cover;
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+  text-shadow:2px 2px 10px black;
 }
 
-.nav a:hover { color: orange; }
-
+/* PRODUCTS */
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
-  padding: 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:20px;
 }
 
 .product {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
 }
 
-.product:hover { transform: scale(1.05); }
+.product:hover { transform:scale(1.05); }
 
 .product img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
 }
 
+/* BUTTONS */
 .cart-btn {
-  background: orange;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  cursor: pointer;
+  background:orange;
+  border:none;
+  padding:10px;
+  width:100%;
+  cursor:pointer;
+  border-radius:5px;
 }
-
-.cart-btn:hover { background: darkorange; }
 
 .order-btn {
-  background: green;
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  margin-top: 10px;
+  background:green;
+  color:white;
+  padding:12px;
+  width:100%;
+  border:none;
+  margin-top:10px;
+  border-radius:5px;
 }
 
 .pay-btn {
-  background: blue;
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border: none;
-  margin-top: 10px;
+  background:#007bff;
+  color:white;
+  padding:12px;
+  width:100%;
+  border:none;
+  margin-top:10px;
+  border-radius:5px;
 }
 
+/* CART */
 .cart-box {
-  background: white;
-  margin: 20px;
-  padding: 15px;
-  border-radius: 10px;
+  background:white;
+  margin:20px;
+  padding:15px;
+  border-radius:10px;
 }
 
+/* POPUP */
 #cartPopup {
   display:none;
   position:fixed;
@@ -105,13 +116,13 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   background:white;
   padding:20px;
   border-radius:10px;
-  box-shadow:0 0 15px rgba(0,0,0,0.4);
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
 input {
-  width: 95%;
-  padding: 10px;
-  margin: 5px 0;
+  width:95%;
+  padding:10px;
+  margin:5px 0;
 }
 </style>
 
@@ -120,47 +131,45 @@ input {
 <body>
 
 <header class="main-header">
-  <div class="logo">🌿 Al Jannah Perfumes</div>
-
+  <div class="logo">🌿 Al Jannah</div>
   <input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
-
-  <button onclick="openCart()">🛒 Cart</button>
-
-  <div class="nav">
-    <a href="#">Home</a>
-    <a href="https://instagram.com/aljannahperfumes" target="_blank">Instagram</a>
-  </div>
+  <button onclick="openCart()">🛒</button>
 </header>
 
-<h2 style="padding-left:20px;">Al Jannah Perfumes | Premium Attar Shop</h2>
+<!-- BANNER -->
+<div class="banner">
+  Luxury Attar Collection ✨
+</div>
 
+<!-- PRODUCTS -->
 <div class="products">
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f">
 <h3>Marj Attar</h3>
-<p>3ML - ₹200</p>
+<p>₹200</p>
 <button class="cart-btn" onclick="addToCart('Marj Attar',200)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
 <h3>Musk Rijali</h3>
-<p>3ML - ₹200</p>
+<p>₹200</p>
 <button class="cart-btn" onclick="addToCart('Musk Rijali',200)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
 <h3>Maryam Attar</h3>
-<p>3ML - ₹150</p>
+<p>₹150</p>
 <button class="cart-btn" onclick="addToCart('Maryam Attar',150)">Add to Cart</button>
 </div>
 
 </div>
 
+<!-- CART -->
 <div class="cart-box">
-<h2>🛒 Cart Summary</h2>
+<h2>🛒 Cart</h2>
 <p id="items">Items: 0</p>
 <p id="total">Total: ₹0</p>
 
@@ -171,6 +180,7 @@ input {
 <button class="pay-btn" onclick="payNow()">Pay via UPI</button>
 </div>
 
+<!-- POPUP -->
 <div id="cartPopup">
 <h3>Your Cart</h3>
 <p id="cartDetails"></p>
@@ -179,61 +189,48 @@ input {
 </div>
 
 <script>
-let count = 0;
-let total = 0;
-let cartItems = "";
+let count=0,total=0,cartItems="";
 
-function addToCart(name, price) {
-  count++;
-  total += price;
-  cartItems += name + ", ";
-
-  document.getElementById("items").innerText = "Items: " + count;
-  document.getElementById("total").innerText = "Total: ₹" + total;
+function addToCart(n,p){
+count++; total+=p; cartItems+=n+", ";
+document.getElementById("items").innerText="Items: "+count;
+document.getElementById("total").innerText="Total: ₹"+total;
 }
 
-function openCart() {
-  document.getElementById("cartPopup").style.display = "block";
-  document.getElementById("cartDetails").innerText = cartItems + " | Total ₹" + total;
+function openCart(){
+document.getElementById("cartPopup").style.display="block";
+document.getElementById("cartDetails").innerText=cartItems+" | ₹"+total;
 }
 
-function closeCart() {
-  document.getElementById("cartPopup").style.display = "none";
+function closeCart(){
+document.getElementById("cartPopup").style.display="none";
 }
 
-function clearCart() {
-  count = 0;
-  total = 0;
-  cartItems = "";
-
-  document.getElementById("items").innerText = "Items: 0";
-  document.getElementById("total").innerText = "Total: ₹0";
-
-  closeCart();
+function clearCart(){
+count=0; total=0; cartItems="";
+document.getElementById("items").innerText="Items: 0";
+document.getElementById("total").innerText="Total: ₹0";
+closeCart();
 }
 
-function searchProduct() {
-  let input = document.getElementById("search").value.toLowerCase();
-  let products = document.getElementsByClassName("product");
-
-  for (let i = 0; i < products.length; i++) {
-    let text = products[i].innerText.toLowerCase();
-    products[i].style.display = text.includes(input) ? "block" : "none";
-  }
+function searchProduct(){
+let input=document.getElementById("search").value.toLowerCase();
+let p=document.getElementsByClassName("product");
+for(let i=0;i<p.length;i++){
+let t=p[i].innerText.toLowerCase();
+p[i].style.display=t.includes(input)?"block":"none";
+}
 }
 
-function orderNow() {
-  let name = document.getElementById("name").value;
-  let address = document.getElementById("address").value;
-
-  let msg = "Order:\n" + cartItems + "\nTotal: ₹" + total +
-            "\nName: " + name + "\nAddress: " + address;
-
-  window.open("https://wa.me/918089900240?text=" + encodeURIComponent(msg));
+function orderNow(){
+let n=document.getElementById("name").value;
+let a=document.getElementById("address").value;
+let msg="Order:\n"+cartItems+"\n₹"+total+"\n"+n+"\n"+a;
+window.open("https://wa.me/918089900240?text="+encodeURIComponent(msg));
 }
 
-function payNow() {
-  window.location.href = "upi://pay?pa=919946800240@federal&pn=Al%20Jannah%20Perfumes&cu=INR";
+function payNow(){
+window.location.href="upi://pay?pa=919946800240@federal&pn=Al%20Jannah&cu=INR";
 }
 </script>
 
