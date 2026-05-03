@@ -14,24 +14,35 @@ body{
 
 /* HEADER */
 .header{
-  background:linear-gradient(135deg,#000,#222);
+  background:linear-gradient(135deg,#000,#1a1a1a);
   color:white;
   text-align:center;
-  padding:40px 20px;
+  padding:50px 20px;
 }
 
 .logo{
-  width:80px;
-  background:white;
-  padding:5px;
-  border-radius:10px;
+  width:90px;
+  margin-bottom:10px;
+  filter: drop-shadow(0 0 10px gold);
 }
 
-h1{color:gold;}
+h1{
+  color:gold;
+  margin:5px;
+}
+
+.tag{
+  color:#ccc;
+}
 
 /* INSTAGRAM */
 .insta{
-  color:pink;
+  display:inline-block;
+  margin-top:10px;
+  padding:8px 15px;
+  background:#E1306C;
+  color:white;
+  border-radius:20px;
   text-decoration:none;
 }
 
@@ -46,15 +57,21 @@ h1{color:gold;}
 .product{
   background:white;
   padding:15px;
-  border-radius:10px;
+  border-radius:12px;
   text-align:center;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  box-shadow:0 0 12px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.product:hover{
+  transform:translateY(-5px);
 }
 
 .product img{
   width:100%;
   height:150px;
   object-fit:cover;
+  border-radius:8px;
 }
 
 .btn{
@@ -62,6 +79,7 @@ h1{color:gold;}
   border:none;
   padding:10px;
   width:100%;
+  border-radius:5px;
 }
 
 /* CART */
@@ -69,29 +87,41 @@ h1{color:gold;}
   background:white;
   margin:20px;
   padding:15px;
-  border-radius:10px;
+  border-radius:12px;
 }
 
 .pay{
-  background:blue;
+  background:#007bff;
   color:white;
-  padding:10px;
+  padding:12px;
   width:100%;
   border:none;
+  border-radius:5px;
 }
 
 .order{
   background:green;
   color:white;
-  padding:10px;
+  padding:12px;
   width:100%;
   border:none;
+  border-radius:5px;
 }
 
 input{
   width:95%;
   padding:10px;
   margin:5px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+.qr{
+  text-align:center;
+  margin-top:10px;
+}
+.qr img{
+  width:150px;
 }
 </style>
 </head>
@@ -102,9 +132,9 @@ input{
 <div class="header">
   <img src="logo.png" class="logo">
   <h1>Al Jannah Perfumes</h1>
-  <p>Premium Attar Collection ✨</p>
+  <p class="tag">Premium Attar Collection ✨</p>
 
-  <a href="https://instagram.com/aljannahperfumes" class="insta">
+  <a href="https://instagram.com/aljannahperfumes" target="_blank" class="insta">
     📲 Follow Instagram
   </a>
 </div>
@@ -120,7 +150,7 @@ input{
 <p style="color:green; font-weight:bold;">Offer Price ₹150</p>
 <p style="color:orange;">🔥 Save ₹50</p>
 
-<button class="btn" onclick="add('Marj Attar',150)">Add</button>
+<button class="btn" onclick="add('Marj Attar',150)">Add to Cart</button>
 </div>
 
 <div class="product">
@@ -131,14 +161,14 @@ input{
 <p style="color:green; font-weight:bold;">Offer Price ₹150</p>
 <p style="color:orange;">🔥 Save ₹50</p>
 
-<button class="btn" onclick="add('Musk Rijali',150)">Add</button>
+<button class="btn" onclick="add('Musk Rijali',150)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
 <h3>Maryam</h3>
 <p>₹150</p>
-<button class="btn" onclick="add('Maryam',150)">Add</button>
+<button class="btn" onclick="add('Maryam',150)">Add to Cart</button>
 </div>
 
 </div>
@@ -154,13 +184,13 @@ input{
 <input id="name" placeholder="Your Name">
 <input id="address" placeholder="Address">
 
-<button class="order" onclick="whatsapp()">Order WhatsApp</button>
+<button class="order" onclick="whatsapp()">Order via WhatsApp</button>
 
 <br><br>
 
 <button class="pay" onclick="pay()">Pay via UPI</button>
 
-<div style="text-align:center;margin-top:10px;">
+<div class="qr">
 <p>Scan & Pay</p>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=919946800240@federal">
 </div>
@@ -182,7 +212,7 @@ function whatsapp(){
 let n=document.getElementById("name").value;
 let a=document.getElementById("address").value;
 
-let msg="🧾 Al Jannah Order\n\nItems: "+list.join(", ")+"\nTotal: ₹"+total+"\nName: "+n+"\nAddress: "+a;
+let msg="🧾 Al Jannah Perfumes Order\n\nItems: "+list.join(", ")+"\nTotal: ₹"+total+"\nName: "+n+"\nAddress: "+a;
 
 window.open("https://wa.me/919946800240?text="+encodeURIComponent(msg));
 }
