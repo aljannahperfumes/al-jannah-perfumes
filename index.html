@@ -1,209 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Al Jannah Perfumes | Premium Attar Shop</title>
-
-<meta name="description" content="Premium attar perfumes. Order via WhatsApp or UPI.">
-
+<!-- Google verification -->
 <meta name="google-site-verification" content="0hjziN4RgVmMMnO9IO4Kpgf-Sqru6mNv9PeYg4LcTvE" />
 
+<title>Al Jannah Perfumes</title>
+
 <style>
-body { margin:0; font-family:Arial; background:#f5f5f5; }
-
-.main-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:#111;
-  color:white;
-  padding:15px;
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f3f3f3;
 }
 
-.logo { font-size:22px; font-weight:bold; color:gold; }
-
-#search { padding:8px; border-radius:5px; border:none; }
-
-.banner {
-  background:url('https://images.unsplash.com/photo-1595425970377-c9703cf48b6d') center/cover;
-  height:220px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:28px;
-  font-weight:bold;
+/* HEADER */
+header {
+  background: linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+  padding: 15px;
+  text-align: center;
+  color: white;
 }
 
+.logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-box img {
+  width: 60px;
+}
+
+/* INSTAGRAM */
+.insta {
+  text-align: center;
+  margin: 10px;
+}
+
+.insta a {
+  color: #e1306c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* PRODUCTS */
 .products {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  padding:20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
 .product {
-  background:white;
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .product img {
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:10px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.cart-btn { background:orange; padding:10px; width:100%; border:none; }
-
-.order-btn { background:green; color:white; padding:12px; width:100%; border:none; margin-top:10px; }
-
-.pay-btn { background:#007bff; color:white; padding:12px; width:100%; border:none; margin-top:10px; }
-
-.cart-box { background:white; margin:20px; padding:15px; border-radius:10px; }
-
-#cartPopup, #successPopup {
-  display:none;
-  position:fixed;
-  top:30%;
-  left:50%;
-  transform:translateX(-50%);
-  background:white;
-  padding:20px;
-  border-radius:10px;
-  box-shadow:0 0 20px rgba(0,0,0,0.4);
+.product h3 {
+  margin: 10px 0;
 }
 
-input { width:95%; padding:10px; margin:5px 0; }
+.product p {
+  color: green;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background: orange;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* CART */
+.cart {
+  background: white;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* FORM */
+input {
+  width: 95%;
+  padding: 10px;
+  margin: 5px;
+}
+
+.order-btn {
+  background: green;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+}
 </style>
-
 </head>
 
 <body>
 
-<header class="main-header">
-  <div class="logo">🌿 Al Jannah</div>
-  <input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
-  <button onclick="openCart()">🛒</button>
+<header>
+  <div class="logo-box">
+    <img src="logo.png">
+    <h2>Al Jannah Perfumes</h2>
+  </div>
 </header>
 
-<div class="banner">Luxury Attar Collection ✨</div>
+<div class="insta">
+  📸 <a href="https://instagram.com/aljannahperfumes" target="_blank">
+  Follow on Instagram</a>
+</div>
 
 <div class="products">
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1594035910387-fea47794261f">
-<h3>Marj Attar</h3>
-<p>₹200</p>
-<button class="cart-btn" onclick="addToCart('Marj Attar',200)">Add to Cart</button>
+  <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
+  <h3>Marj Attar</h3>
+  <p>3ML - ₹200</p>
+  <button class="cart-btn" onclick="addToCart('Marj Attar',200)">Add to Cart</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
-<h3>Musk Rijali</h3>
-<p>₹200</p>
-<button class="cart-btn" onclick="addToCart('Musk Rijali',200)">Add to Cart</button>
+  <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
+  <h3>Musk Rijali</h3>
+  <p>3ML - ₹200</p>
+  <button class="cart-btn" onclick="addToCart('Musk Rijali',200)">Add to Cart</button>
 </div>
 
 <div class="product">
-<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
-<h3>Maryam Attar</h3>
-<p>₹150</p>
-<button class="cart-btn" onclick="addToCart('Maryam Attar',150)">Add to Cart</button>
+  <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
+  <h3>Maryam Attar</h3>
+  <p>3ML - ₹150</p>
+  <button class="cart-btn" onclick="addToCart('Maryam Attar',150)">Add to Cart</button>
 </div>
 
 </div>
 
-<!-- CART -->
-<div class="cart-box">
-<h2>🛒 Cart</h2>
-<p id="items">Items: 0</p>
-<p id="total">Total: ₹0</p>
+<div class="cart">
+  <h3>🛒 Cart</h3>
+  <p>Items: <span id="count">0</span></p>
+  <p>Total: ₹<span id="total">0</span></p>
 
-<p style="color:green;">✔️ Secure UPI Payment</p>
+  <h3>Customer Details</h3>
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="text" id="address" placeholder="Your Address">
 
-<input type="text" id="name" placeholder="Your Name">
-<input type="text" id="address" placeholder="Your Address">
+  <button class="order-btn" onclick="orderNow()">Order via WhatsApp</button>
 
-<button class="order-btn" onclick="orderNow()">Order via WhatsApp</button>
-<button class="pay-btn" onclick="payNow()">💳 Pay via UPI (GPay / PhonePe)</button>
-</div>
+  <br><br>
 
-<!-- POPUPS -->
-<div id="cartPopup">
-<h3>Your Cart</h3>
-<p id="cartDetails"></p>
-<button onclick="closeCart()">Close</button>
-<button onclick="clearCart()">Clear</button>
-</div>
-
-<div id="successPopup">
-<h3>✅ Order Sent Successfully!</h3>
-<button onclick="closeSuccess()">OK</button>
+  <h3>UPI Payment</h3>
+  <p>UPI ID: <b>919946800240@fedaral</b></p>
 </div>
 
 <script>
-let count=0,total=0,cartItems="";
+let count = 0;
+let total = 0;
+let items = "";
 
-function addToCart(n,p){
-count++; total+=p; cartItems+=n+", ";
-document.getElementById("items").innerText="Items: "+count;
-document.getElementById("total").innerText="Total: ₹"+total;
-}
+function addToCart(name, price){
+  count++;
+  total += price;
+  items += name + ", ";
 
-function openCart(){
-document.getElementById("cartPopup").style.display="block";
-document.getElementById("cartDetails").innerText=cartItems+" | ₹"+total;
-}
-
-function closeCart(){ document.getElementById("cartPopup").style.display="none"; }
-
-function clearCart(){
-count=0; total=0; cartItems="";
-document.getElementById("items").innerText="Items: 0";
-document.getElementById("total").innerText="Total: ₹0";
-closeCart();
-}
-
-function searchProduct(){
-let input=document.getElementById("search").value.toLowerCase();
-let p=document.getElementsByClassName("product");
-for(let i=0;i<p.length;i++){
-let t=p[i].innerText.toLowerCase();
-p[i].style.display=t.includes(input)?"block":"none";
-}
+  document.getElementById("count").innerText = count;
+  document.getElementById("total").innerText = total;
 }
 
 function orderNow(){
-let n=document.getElementById("name").value;
-let a=document.getElementById("address").value;
+  let name = document.getElementById("name").value;
+  let address = document.getElementById("address").value;
 
-if(n=="" || a==""){ alert("Enter details"); return; }
+  let msg = "Order from Al Jannah Perfumes\n"
+  + "Name: " + name + "\n"
+  + "Address: " + address + "\n"
+  + "Items: " + items + "\n"
+  + "Total: ₹" + total;
 
-let msg="Order:\n"+cartItems+"\n₹"+total+"\n"+n+"\n"+a;
-
-window.open("https://wa.me/918089900240?text="+encodeURIComponent(msg));
-
-document.getElementById("successPopup").style.display="block";
-}
-
-function closeSuccess(){ document.getElementById("successPopup").style.display="none"; }
-
-function payNow(){
-let name=document.getElementById("name").value;
-
-if(name==""){ alert("Enter your name"); return; }
-
-let upi="upi://pay?pa=919946800240@federal"+
-"&pn=Al%20Jannah%20Perfumes"+
-"&am="+total+
-"&cu=INR"+
-"&tn="+encodeURIComponent("Order: "+cartItems);
-
-window.location.href=upi;
+  window.open("https://wa.me/919946800240?text=" + encodeURIComponent(msg));
 }
 </script>
 
