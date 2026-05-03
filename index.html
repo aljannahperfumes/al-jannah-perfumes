@@ -2,16 +2,15 @@
 <html>
 <head>
 
-<title>Al Jannah Perfumes | Best Attar Shop</title>
+<title>Al Jannah Perfumes | Premium Attar Shop</title>
 
-<meta name="description" content="Buy premium attar perfumes like Marj, Musk Rijali, Maryam at best price. Order via WhatsApp.">
+<meta name="description" content="Buy premium attar perfumes at best price. Order via WhatsApp.">
 
 <meta name="google-site-verification" content="0hjziN4RgVmMMnO9IO4Kpgf-Sqru6mNv9PeYg4LcTvE" />
 
 <style>
 body { font-family: Arial; margin: 0; background: #f3f3f3; }
 
-/* HEADER */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -25,20 +24,19 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
 
 #search {
   padding: 8px;
-  width: 200px;
+  width: 180px;
   border-radius: 5px;
   border: none;
 }
 
 .nav a {
   color: white;
-  margin-left: 15px;
+  margin-left: 10px;
   text-decoration: none;
 }
 
 .nav a:hover { color: orange; }
 
-/* PRODUCTS */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -55,9 +53,7 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   transition: 0.3s;
 }
 
-.product:hover {
-  transform: scale(1.05);
-}
+.product:hover { transform: scale(1.05); }
 
 .product img {
   width: 100%;
@@ -65,7 +61,6 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   object-fit: cover;
 }
 
-/* BUTTONS */
 .cart-btn {
   background: orange;
   border: none;
@@ -83,10 +78,7 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   width: 100%;
   border: none;
   margin-top: 10px;
-  cursor: pointer;
 }
-
-.order-btn:hover { background: darkgreen; }
 
 .pay-btn {
   background: blue;
@@ -95,15 +87,25 @@ body { font-family: Arial; margin: 0; background: #f3f3f3; }
   width: 100%;
   border: none;
   margin-top: 10px;
-  cursor: pointer;
 }
 
-/* CART */
 .cart-box {
   background: white;
   margin: 20px;
   padding: 15px;
   border-radius: 10px;
+}
+
+#cartPopup {
+  display:none;
+  position:fixed;
+  top:25%;
+  left:50%;
+  transform:translateX(-50%);
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
 input {
@@ -120,56 +122,60 @@ input {
 <header class="main-header">
   <div class="logo">🌿 Al Jannah Perfumes</div>
 
-  <input type="text" id="search" placeholder="Search attar..." onkeyup="searchProduct()">
+  <input type="text" id="search" placeholder="Search..." onkeyup="searchProduct()">
+
+  <button onclick="openCart()">🛒 Cart</button>
 
   <div class="nav">
     <a href="#">Home</a>
-    <a href="#">Products</a>
     <a href="https://instagram.com/aljannahperfumes" target="_blank">Instagram</a>
   </div>
 </header>
 
-<h2 style="padding-left:20px;">Best Attar Shop in Kozhikode</h2>
+<h2 style="padding-left:20px;">Al Jannah Perfumes | Premium Attar Shop</h2>
 
 <div class="products">
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f">
 <h3>Marj Attar</h3>
-<p style="color:red;">🔥 Best Seller</p>
 <p>3ML - ₹200</p>
-<button class="cart-btn" onclick="addToCart('Marj Attar (3ML)',200)">Add to Cart</button>
+<button class="cart-btn" onclick="addToCart('Marj Attar',200)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
 <h3>Musk Rijali</h3>
 <p>3ML - ₹200</p>
-<button class="cart-btn" onclick="addToCart('Musk Rijali (3ML)',200)">Add to Cart</button>
+<button class="cart-btn" onclick="addToCart('Musk Rijali',200)">Add to Cart</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
 <h3>Maryam Attar</h3>
 <p>3ML - ₹150</p>
-<button class="cart-btn" onclick="addToCart('Maryam Attar (3ML)',150)">Add to Cart</button>
+<button class="cart-btn" onclick="addToCart('Maryam Attar',150)">Add to Cart</button>
 </div>
 
 </div>
 
 <div class="cart-box">
-
-<h2>🛒 Cart</h2>
+<h2>🛒 Cart Summary</h2>
 <p id="items">Items: 0</p>
 <p id="total">Total: ₹0</p>
 
-<h3>Customer Details</h3>
 <input type="text" id="name" placeholder="Your Name">
 <input type="text" id="address" placeholder="Your Address">
 
-<button class="order-btn" onclick="orderNow()">💬 Order via WhatsApp</button>
-<button class="pay-btn" onclick="payNow()">💳 Pay via UPI</button>
+<button class="order-btn" onclick="orderNow()">Order via WhatsApp</button>
+<button class="pay-btn" onclick="payNow()">Pay via UPI</button>
+</div>
 
+<div id="cartPopup">
+<h3>Your Cart</h3>
+<p id="cartDetails"></p>
+<button onclick="closeCart()">Close</button>
+<button onclick="clearCart()">Clear</button>
 </div>
 
 <script>
@@ -186,38 +192,44 @@ function addToCart(name, price) {
   document.getElementById("total").innerText = "Total: ₹" + total;
 }
 
+function openCart() {
+  document.getElementById("cartPopup").style.display = "block";
+  document.getElementById("cartDetails").innerText = cartItems + " | Total ₹" + total;
+}
+
+function closeCart() {
+  document.getElementById("cartPopup").style.display = "none";
+}
+
+function clearCart() {
+  count = 0;
+  total = 0;
+  cartItems = "";
+
+  document.getElementById("items").innerText = "Items: 0";
+  document.getElementById("total").innerText = "Total: ₹0";
+
+  closeCart();
+}
+
 function searchProduct() {
   let input = document.getElementById("search").value.toLowerCase();
   let products = document.getElementsByClassName("product");
 
   for (let i = 0; i < products.length; i++) {
     let text = products[i].innerText.toLowerCase();
-
-    if (text.includes(input)) {
-      products[i].style.display = "block";
-    } else {
-      products[i].style.display = "none";
-    }
+    products[i].style.display = text.includes(input) ? "block" : "none";
   }
 }
 
 function orderNow() {
-  let customer = document.getElementById("name").value;
+  let name = document.getElementById("name").value;
   let address = document.getElementById("address").value;
 
-  if(customer == "" || address == "") {
-    alert("Enter name and address");
-    return;
-  }
+  let msg = "Order:\n" + cartItems + "\nTotal: ₹" + total +
+            "\nName: " + name + "\nAddress: " + address;
 
-  let message =
-  "🛒 Order - Al Jannah Perfumes\n\n" +
-  "👤 Name: " + customer + "\n" +
-  "📍 Address: " + address + "\n\n" +
-  "🧴 Items: " + cartItems + "\n" +
-  "💰 Total: ₹" + total;
-
-  window.open("https://wa.me/918089900240?text=" + encodeURIComponent(message));
+  window.open("https://wa.me/918089900240?text=" + encodeURIComponent(msg));
 }
 
 function payNow() {
