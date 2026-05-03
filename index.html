@@ -4,19 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google verification -->
 <meta name="google-site-verification" content="0hjziN4RgVmMMnO9IO4Kpgf-Sqru6mNv9PeYg4LcTvE" />
 
 <title>Al Jannah Perfumes</title>
 
 <style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #f3f3f3;
-}
+body { font-family: Arial; margin: 0; background: #f3f3f3; }
 
-/* HEADER */
 header {
   background: linear-gradient(90deg,#0f2027,#203a43,#2c5364);
   padding: 15px;
@@ -31,23 +25,8 @@ header {
   gap: 10px;
 }
 
-.logo-box img {
-  width: 60px;
-}
+.logo-box img { width: 60px; }
 
-/* INSTAGRAM */
-.insta {
-  text-align: center;
-  margin: 10px;
-}
-
-.insta a {
-  color: #e1306c;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* PRODUCTS */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -67,27 +46,8 @@ header {
   width: 100%;
   height: 150px;
   object-fit: cover;
-  border-radius: 8px;
 }
 
-.product h3 {
-  margin: 10px 0;
-}
-
-.product p {
-  color: green;
-  font-weight: bold;
-}
-
-.cart-btn {
-  background: orange;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  cursor: pointer;
-}
-
-/* CART */
 .cart {
   background: white;
   margin: 20px;
@@ -95,19 +55,21 @@ header {
   border-radius: 10px;
 }
 
-/* FORM */
+button {
+  padding: 10px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.cart-btn { background: orange; }
+.order-btn { background: green; color: white; }
+.pay-btn { background: #007bff; color: white; }
+
 input {
   width: 95%;
   padding: 10px;
   margin: 5px;
-}
-
-.order-btn {
-  background: green;
-  color: white;
-  padding: 12px;
-  border: none;
-  width: 100%;
 }
 </style>
 </head>
@@ -121,31 +83,26 @@ input {
   </div>
 </header>
 
-<div class="insta">
-  📸 <a href="https://instagram.com/aljannahperfumes" target="_blank">
-  Follow on Instagram</a>
-</div>
-
 <div class="products">
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
   <h3>Marj Attar</h3>
-  <p>3ML - ₹200</p>
+  <p>₹200</p>
   <button class="cart-btn" onclick="addToCart('Marj Attar',200)">Add to Cart</button>
 </div>
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
   <h3>Musk Rijali</h3>
-  <p>3ML - ₹200</p>
+  <p>₹200</p>
   <button class="cart-btn" onclick="addToCart('Musk Rijali',200)">Add to Cart</button>
 </div>
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
   <h3>Maryam Attar</h3>
-  <p>3ML - ₹150</p>
+  <p>₹150</p>
   <button class="cart-btn" onclick="addToCart('Maryam Attar',150)">Add to Cart</button>
 </div>
 
@@ -156,16 +113,20 @@ input {
   <p>Items: <span id="count">0</span></p>
   <p>Total: ₹<span id="total">0</span></p>
 
-  <h3>Customer Details</h3>
   <input type="text" id="name" placeholder="Your Name">
   <input type="text" id="address" placeholder="Your Address">
 
   <button class="order-btn" onclick="orderNow()">Order via WhatsApp</button>
 
-  <br><br>
+  <hr>
 
-  <h3>UPI Payment</h3>
-  <p>UPI ID: <b>919946800240@fedaral</b></p>
+  <!-- PAYMENT SECTION -->
+  <h3>💳 Payment Options</h3>
+
+  <p>UPI ID: <b>919946800240@federal</b></p>
+
+  <button class="pay-btn" onclick="payNow()">Pay via UPI 📲</button>
+
 </div>
 
 <script>
@@ -186,13 +147,27 @@ function orderNow(){
   let name = document.getElementById("name").value;
   let address = document.getElementById("address").value;
 
-  let msg = "Order from Al Jannah Perfumes\n"
-  + "Name: " + name + "\n"
-  + "Address: " + address + "\n"
-  + "Items: " + items + "\n"
-  + "Total: ₹" + total;
+  let msg = "Order:\nItems: " + items + "\nTotal: ₹" + total +
+            "\nName: " + name + "\nAddress: " + address;
 
   window.open("https://wa.me/919946800240?text=" + encodeURIComponent(msg));
+}
+
+function payNow(){
+  let name = document.getElementById("name").value;
+
+  if(name==""){
+    alert("Enter your name");
+    return;
+  }
+
+  let upi = "upi://pay?pa=919946800240@federal" +
+  "&pn=Al%20Jannah%20Perfumes" +
+  "&am=" + total +
+  "&cu=INR" +
+  "&tn=" + encodeURIComponent("Order: " + items);
+
+  window.location.href = upi;
 }
 </script>
 
