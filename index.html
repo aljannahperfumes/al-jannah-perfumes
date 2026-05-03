@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="google-site-verification" content="0hjziN4RgVmMMnO9IO4Kpgf-Sqru6mNv9PeYg4LcTvE" />
-
 <title>Al Jannah Perfumes</title>
 
 <style>
@@ -15,52 +13,44 @@ body {
   background: #f3f3f3;
 }
 
-/* ===== LUXURY HEADER (NO FACE) ===== */
+/* ===== HEADER ===== */
 .luxury-header {
-  position: relative;
   height: 260px;
-
-  /* ✅ PURE LUXURY BACKGROUND */
-  background: linear-gradient(135deg, #000000, #1a1a1a, #000000);
-
+  background: linear-gradient(135deg, #000, #1a1a1a);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+  animation: fadeIn 2s ease;
 }
 
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-}
-
-.header-content {
-  position: relative;
-  z-index: 2;
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
 }
 
 .logo {
   width: 90px;
-  margin-bottom: 10px;
   background: white;
   padding: 6px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+  margin-bottom: 10px;
 }
 
-.header-content h1 {
-  margin: 0;
-  font-size: 32px;
+h1 {
   color: gold;
-  letter-spacing: 1px;
 }
 
-.header-content p {
-  color: #ddd;
-  font-size: 14px;
+/* ===== INSTAGRAM BUTTON ===== */
+.insta-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #E1306C;
+  color: white;
+  border-radius: 20px;
+  text-decoration: none;
 }
 
 /* ===== PRODUCTS ===== */
@@ -76,28 +66,12 @@ body {
   padding: 15px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.product:hover {
-  transform: translateY(-5px);
 }
 
 .product img {
   width: 100%;
   height: 150px;
   object-fit: cover;
-  border-radius: 8px;
-}
-
-.product h3 {
-  margin: 10px 0;
-}
-
-.product p {
-  color: green;
-  font-weight: bold;
 }
 
 .cart-btn {
@@ -105,8 +79,6 @@ body {
   border: none;
   padding: 10px;
   width: 100%;
-  cursor: pointer;
-  border-radius: 5px;
 }
 
 /* ===== CART ===== */
@@ -121,135 +93,111 @@ body {
   background: green;
   color: white;
   padding: 12px;
-  border: none;
   width: 100%;
-  border-radius: 5px;
+  border: none;
 }
 
 .pay-btn {
-  background: #007bff;
+  background: blue;
   color: white;
   padding: 12px;
-  border: none;
   width: 100%;
-  border-radius: 5px;
+  border: none;
 }
 
-/* ===== INPUT ===== */
-input {
-  width: 95%;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+/* ===== QR ===== */
+.qr {
+  text-align: center;
+  margin-top: 10px;
 }
+
+.qr img {
+  width: 150px;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
-<header class="luxury-header">
-  <div class="overlay"></div>
-
-  <div class="header-content">
+<!-- HEADER -->
+<div class="luxury-header">
+  <div>
     <img src="logo.png" class="logo">
     <h1>Al Jannah Perfumes</h1>
     <p>Premium Attar Collection ✨</p>
-  </div>
-</header>
 
-<!-- ===== PRODUCTS ===== -->
+    <!-- INSTAGRAM -->
+    <a href="https://instagram.com/aljannahperfumes" target="_blank" class="insta-btn">
+      📲 Follow on Instagram
+    </a>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
 <div class="products">
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
   <h3>Marj Attar</h3>
-  <p>3ML - ₹200</p>
-  <button class="cart-btn" onclick="addToCart('Marj Attar',200)">Add to Cart</button>
+  <p>₹200</p>
+  <button class="cart-btn" onclick="addToCart('Marj',200)">Add</button>
 </div>
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
   <h3>Musk Rijali</h3>
-  <p>3ML - ₹200</p>
-  <button class="cart-btn" onclick="addToCart('Musk Rijali',200)">Add to Cart</button>
+  <p>₹200</p>
+  <button class="cart-btn" onclick="addToCart('Musk',200)">Add</button>
 </div>
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
-  <h3>Maryam Attar</h3>
-  <p>3ML - ₹150</p>
-  <button class="cart-btn" onclick="addToCart('Maryam Attar',150)">Add to Cart</button>
+  <h3>Maryam</h3>
+  <p>₹150</p>
+  <button class="cart-btn" onclick="addToCart('Maryam',150)">Add</button>
 </div>
 
 </div>
 
-<!-- ===== CART ===== -->
+<!-- CART -->
 <div class="cart">
-  <h3>🛒 Cart</h3>
-  <p>Items: <span id="count">0</span></p>
+  <h3>Cart</h3>
   <p>Total: ₹<span id="total">0</span></p>
 
-  <input type="text" id="name" placeholder="Your Name">
-  <input type="text" id="address" placeholder="Your Address">
+  <input id="name" placeholder="Name">
+  <input id="address" placeholder="Address">
 
-  <button class="order-btn" onclick="orderNow()">Order via WhatsApp</button>
+  <button class="order-btn" onclick="orderNow()">WhatsApp Order</button>
 
-  <hr>
+  <br><br>
 
-  <h3>💳 Payment Options</h3>
+  <button class="pay-btn" onclick="payNow()">UPI Pay</button>
 
-  <button class="pay-btn" onclick="payNow()">
-    💳 Pay via UPI (GPay / PhonePe)
-  </button>
-
-  <p style="font-size:12px; color:gray; text-align:center;">
-    ✔️ Safe & Secure Payment
-  </p>
-
+  <!-- QR -->
+  <div class="qr">
+    <p>Scan & Pay</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=919946800240@federal">
+  </div>
 </div>
 
-<!-- ===== SCRIPT ===== -->
 <script>
-let count = 0;
 let total = 0;
 let items = "";
 
 function addToCart(name, price){
-  count++;
   total += price;
-  items += name + ", ";
-
-  document.getElementById("count").innerText = count;
+  items += name + ",";
   document.getElementById("total").innerText = total;
 }
 
 function orderNow(){
-  let name = document.getElementById("name").value;
-  let address = document.getElementById("address").value;
-
-  let msg = "Order:\nItems: " + items + "\nTotal: ₹" + total +
-            "\nName: " + name + "\nAddress: " + address;
-
-  window.open("https://wa.me/919946800240?text=" + encodeURIComponent(msg));
+  let msg = "Order: " + items + " Total: ₹" + total;
+  window.open("https://wa.me/919946800240?text=" + msg);
 }
 
 function payNow(){
-  let name = document.getElementById("name").value;
-
-  if(name==""){
-    alert("Enter your name");
-    return;
-  }
-
-  let upi = "upi://pay?pa=919946800240@federal" +
-  "&pn=Al%20Jannah%20Perfumes" +
-  "&am=" + total +
-  "&cu=INR" +
-  "&tn=" + encodeURIComponent("Order: " + items);
-
-  window.location.href = upi;
+  window.location.href = "upi://pay?pa=919946800240@federal&am=" + total;
 }
 </script>
 
