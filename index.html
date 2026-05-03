@@ -9,24 +9,52 @@
 <title>Al Jannah Perfumes</title>
 
 <style>
-body { font-family: Arial; margin: 0; background: #f3f3f3; }
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f3f3f3;
+}
 
-header {
-  background: linear-gradient(90deg,#0f2027,#203a43,#2c5364);
-  padding: 15px;
+/* ===== LUXURY HEADER ===== */
+.luxury-header {
+  position: relative;
+  height: 220px;
+  background: url("https://images.unsplash.com/photo-1600180758890-6b94519a8ba6") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   color: white;
 }
 
-.logo-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
 }
 
-.logo-box img { width: 60px; }
+.header-content {
+  position: relative;
+  z-index: 2;
+}
 
+.logo {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 28px;
+  color: gold;
+}
+
+.header-content p {
+  color: #ddd;
+}
+
+/* ===== PRODUCTS ===== */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -46,8 +74,27 @@ header {
   width: 100%;
   height: 150px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
+.product h3 {
+  margin: 10px 0;
+}
+
+.product p {
+  color: green;
+  font-weight: bold;
+}
+
+.cart-btn {
+  background: orange;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* ===== CART ===== */
 .cart {
   background: white;
   margin: 20px;
@@ -55,17 +102,23 @@ header {
   border-radius: 10px;
 }
 
-button {
-  padding: 10px;
+.order-btn {
+  background: green;
+  color: white;
+  padding: 12px;
   border: none;
   width: 100%;
-  cursor: pointer;
 }
 
-.cart-btn { background: orange; }
-.order-btn { background: green; color: white; }
-.pay-btn { background: #007bff; color: white; }
+.pay-btn {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+}
 
+/* ===== INPUT ===== */
 input {
   width: 95%;
   padding: 10px;
@@ -76,38 +129,44 @@ input {
 
 <body>
 
-<header>
-  <div class="logo-box">
-    <img src="logo.png">
-    <h2>Al Jannah Perfumes</h2>
+<!-- ===== HEADER ===== -->
+<header class="luxury-header">
+  <div class="overlay"></div>
+
+  <div class="header-content">
+    <img src="logo.png" class="logo">
+    <h1>Al Jannah Perfumes</h1>
+    <p>Premium Attar Collection ✨</p>
   </div>
 </header>
 
+<!-- ===== PRODUCTS ===== -->
 <div class="products">
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
   <h3>Marj Attar</h3>
-  <p>₹200</p>
+  <p>3ML - ₹200</p>
   <button class="cart-btn" onclick="addToCart('Marj Attar',200)">Add to Cart</button>
 </div>
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
   <h3>Musk Rijali</h3>
-  <p>₹200</p>
+  <p>3ML - ₹200</p>
   <button class="cart-btn" onclick="addToCart('Musk Rijali',200)">Add to Cart</button>
 </div>
 
 <div class="product">
   <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
   <h3>Maryam Attar</h3>
-  <p>₹150</p>
+  <p>3ML - ₹150</p>
   <button class="cart-btn" onclick="addToCart('Maryam Attar',150)">Add to Cart</button>
 </div>
 
 </div>
 
+<!-- ===== CART ===== -->
 <div class="cart">
   <h3>🛒 Cart</h3>
   <p>Items: <span id="count">0</span></p>
@@ -120,7 +179,6 @@ input {
 
   <hr>
 
-  <!-- CLEAN PAYMENT -->
   <h3>💳 Payment Options</h3>
 
   <button class="pay-btn" onclick="payNow()">
@@ -133,6 +191,7 @@ input {
 
 </div>
 
+<!-- ===== SCRIPT ===== -->
 <script>
 let count = 0;
 let total = 0;
