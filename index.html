@@ -20,7 +20,7 @@ body{
   padding:50px 20px;
 }
 
-/* LOGO FIX */
+/* LOGO */
 .logo{
   width:140px;
   max-width:90%;
@@ -29,7 +29,7 @@ body{
   filter: drop-shadow(0 0 12px gold);
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media(max-width:600px){
   .logo{
     width:110px;
@@ -70,11 +70,6 @@ h1{
   border-radius:12px;
   text-align:center;
   box-shadow:0 0 12px rgba(0,0,0,0.1);
-  transition:0.3s;
-}
-
-.product:hover{
-  transform:translateY(-5px);
 }
 
 .product img{
@@ -140,16 +135,18 @@ input{
 
 <!-- HEADER -->
 <div class="header">
-  <!-- LOGO FIXED -->
-  <img src="logo.png" class="logo"
-  onerror="this.src='https://via.placeholder.com/150'">
 
-  <h1>Al Jannah Perfumes</h1>
-  <p class="tag">Premium Attar Collection ✨</p>
+<!-- ✅ LOGO FIXED -->
+<img src="./logo.png" class="logo"
+onerror="this.src='https://via.placeholder.com/150'">
 
-  <a href="https://instagram.com/aljannahperfumes" target="_blank" class="insta">
-    📲 Follow Instagram
-  </a>
+<h1>Al Jannah Perfumes</h1>
+<p class="tag">Premium Attar Collection ✨</p>
+
+<a href="https://instagram.com/aljannahperfumes" target="_blank" class="insta">
+📲 Follow Instagram
+</a>
+
 </div>
 
 <!-- PRODUCTS -->
