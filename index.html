@@ -15,33 +15,21 @@ body{
 /* HEADER */
 .header{
   background:linear-gradient(135deg,#000,#1a1a1a);
-  color:white;
   text-align:center;
   padding:50px 20px;
 }
 
-/* LOGO TEXT BOX */
-.logo-box{
-  width:140px;
-  height:140px;
+/* SVG LOGO */
+.logo{
+  width:150px;
+  height:150px;
   margin:auto;
-  background:black;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 15px gold;
-}
-
-.logo-text{
-  color:gold;
-  font-weight:bold;
-  text-align:center;
+  display:block;
 }
 
 /* MOBILE */
 @media(max-width:600px){
-  .logo-box{
+  .logo{
     width:110px;
     height:110px;
   }
@@ -49,6 +37,7 @@ body{
 
 h1{
   color:gold;
+  margin:10px 0;
 }
 
 .tag{
@@ -138,12 +127,16 @@ input{
 <!-- HEADER -->
 <div class="header">
 
-<!-- 🔥 ALWAYS WORKING LOGO -->
-<div class="logo-box">
-  <div class="logo-text">
+<!-- 🔥 GUARANTEED LOGO -->
+<svg class="logo" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="black"/>
+  <text x="100" y="90" font-size="28" fill="gold" text-anchor="middle">
     AL JANNAH
-  </div>
-</div>
+  </text>
+  <text x="100" y="120" font-size="14" fill="white" text-anchor="middle">
+    PERFUMES
+  </text>
+</svg>
 
 <h1>Al Jannah Perfumes</h1>
 <p class="tag">Premium Attar Collection ✨</p>
