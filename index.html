@@ -9,7 +9,7 @@
 body{
   margin:0;
   font-family: Arial;
-  background:#f8f8f8;  /* 🔥 clean light background */
+  background:#f8f8f8;
 }
 
 /* HEADER */
@@ -26,6 +26,9 @@ body{
   display:block;
   margin:auto;
   margin-bottom:10px;
+
+  /* 🔥 WHITE LOGO */
+  filter: brightness(0) invert(1);
 }
 
 h1{
@@ -65,6 +68,7 @@ h1{
   padding:10px;
   width:100%;
   border-radius:5px;
+  font-weight:bold;
 }
 
 /* CART */
@@ -101,45 +105,67 @@ input{
 
 <body>
 
+<!-- HEADER -->
 <div class="header">
   <img src="./logo.png" class="logo">
   <h1>Al Jannah Perfumes</h1>
   <p class="tag">Premium Attar Collection</p>
 </div>
 
+<!-- PRODUCTS -->
 <div class="products">
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
 <h3>Marj Attar</h3>
+
 <p style="text-decoration:line-through;color:red;">₹200</p>
-<p style="color:green;">Offer ₹150</p>
+<p style="color:green;font-weight:bold;">Offer ₹150</p>
 <p style="color:orange;">Save ₹50</p>
-<button class="btn" onclick="add('Marj',150)">Add</button>
+
+<button class="btn" onclick="add('Marj Attar',150)">Add</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
 <h3>Musk Rijali</h3>
+
 <p style="text-decoration:line-through;color:red;">₹200</p>
-<p style="color:green;">Offer ₹150</p>
+<p style="color:green;font-weight:bold;">Offer ₹150</p>
 <p style="color:orange;">Save ₹50</p>
-<button class="btn" onclick="add('Musk',150)">Add</button>
+
+<button class="btn" onclick="add('Musk Rijali',150)">Add</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad">
+<h3>Maryam</h3>
+<p>₹150</p>
+<button class="btn" onclick="add('Maryam',150)">Add</button>
 </div>
 
 </div>
 
+<!-- CART -->
 <div class="cart">
-<h3>Order</h3>
+<h3>🛒 Order Summary</h3>
+
 <p id="items">No items</p>
 <p>Total ₹<span id="total">0</span></p>
 
-<input id="name" placeholder="Name">
+<input id="name" placeholder="Your Name">
 <input id="address" placeholder="Address">
 
-<button class="order" onclick="order()">WhatsApp</button>
+<button class="order" onclick="order()">WhatsApp Order</button>
+
 <br><br>
+
 <button class="pay" onclick="pay()">UPI Pay</button>
+
+<div style="text-align:center;margin-top:10px;">
+<p>Scan & Pay</p>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=919946800240@federal">
+</div>
 </div>
 
 <script>
@@ -147,15 +173,15 @@ let total=0;
 let list=[];
 
 function add(n,p){
-total+=p;
-list.push(n);
-document.getElementById("total").innerText=total;
-document.getElementById("items").innerText=list.join(",");
+  total+=p;
+  list.push(n);
+  document.getElementById("total").innerText=total;
+  document.getElementById("items").innerText=list.join(", ");
 }
 
 function order(){
-let msg="Order: "+list.join(",")+" Total ₹"+total;
-window.open("https://wa.me/919946800240?text="+msg);
+let msg="🧾 Order: "+list.join(", ")+" | Total ₹"+total;
+window.open("https://wa.me/919946800240?text="+encodeURIComponent(msg));
 }
 
 function pay(){
