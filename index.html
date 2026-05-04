@@ -8,48 +8,44 @@
 <style>
 body{
   margin:0;
-  font-family: Arial;
-  background:#f3f3f3;
+  font-family: 'Segoe UI', sans-serif;
+
+  /* 🔥 LUXURY BACKGROUND */
+  background: linear-gradient(135deg, #000000, #1a1a1a, #3b2f2f);
+  color:white;
 }
 
 /* HEADER */
 .header{
-  background:linear-gradient(135deg,#000,#1a1a1a);
   text-align:center;
-  padding:50px 20px;
+  padding:60px 20px;
 }
 
-/* SVG LOGO */
+/* LOGO */
 .logo{
-  width:150px;
-  height:150px;
-  margin:auto;
+  width:140px;
   display:block;
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  .logo{
-    width:110px;
-    height:110px;
-  }
+  margin:auto;
+  margin-bottom:15px;
+  filter: drop-shadow(0 0 15px gold);
 }
 
 h1{
   color:gold;
-  margin:10px 0;
+  font-size:28px;
+  margin:5px;
 }
 
 .tag{
-  color:#ccc;
+  color:#ddd;
 }
 
 /* INSTAGRAM */
 .insta{
   display:inline-block;
   margin-top:10px;
-  padding:8px 15px;
-  background:#E1306C;
+  padding:8px 18px;
+  background:linear-gradient(45deg,#E1306C,#ff7a00);
   color:white;
   border-radius:20px;
   text-decoration:none;
@@ -64,31 +60,43 @@ h1{
 }
 
 .product{
-  background:white;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
   padding:15px;
-  border-radius:12px;
+  border-radius:15px;
   text-align:center;
+  border:1px solid rgba(255,215,0,0.2);
+  transition:0.3s;
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 15px gold;
 }
 
 .product img{
   width:100%;
   height:150px;
   object-fit:cover;
+  border-radius:10px;
 }
 
 .btn{
-  background:orange;
+  background:gold;
   border:none;
   padding:10px;
   width:100%;
+  border-radius:5px;
+  font-weight:bold;
 }
 
 /* CART */
 .cart{
-  background:white;
+  background:rgba(255,255,255,0.05);
   margin:20px;
-  padding:15px;
-  border-radius:12px;
+  padding:20px;
+  border-radius:15px;
+  border:1px solid rgba(255,215,0,0.2);
 }
 
 .pay{
@@ -97,6 +105,7 @@ h1{
   padding:12px;
   width:100%;
   border:none;
+  border-radius:5px;
 }
 
 .order{
@@ -105,19 +114,22 @@ h1{
   padding:12px;
   width:100%;
   border:none;
+  border-radius:5px;
 }
 
 input{
   width:95%;
   padding:10px;
   margin:5px;
+  border-radius:5px;
+  border:none;
 }
 
-.qr{
-  text-align:center;
-}
-.qr img{
-  width:150px;
+/* MOBILE */
+@media(max-width:600px){
+  .logo{
+    width:110px;
+  }
 }
 </style>
 </head>
@@ -127,19 +139,11 @@ input{
 <!-- HEADER -->
 <div class="header">
 
-<!-- 🔥 GUARANTEED LOGO -->
-<svg class="logo" viewBox="0 0 200 200">
-  <rect width="200" height="200" fill="black"/>
-  <text x="100" y="90" font-size="28" fill="gold" text-anchor="middle">
-    AL JANNAH
-  </text>
-  <text x="100" y="120" font-size="14" fill="white" text-anchor="middle">
-    PERFUMES
-  </text>
-</svg>
+<img src="./logo.png" class="logo"
+onerror="this.style.display='none'">
 
 <h1>Al Jannah Perfumes</h1>
-<p class="tag">Premium Attar Collection ✨</p>
+<p class="tag">Luxury Attar Collection ✨</p>
 
 <a href="https://instagram.com/aljannahperfumes" class="insta">
 📲 Follow Instagram
@@ -154,22 +158,22 @@ input{
 <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539">
 <h3>Marj Attar</h3>
 
-<p style="text-decoration:line-through; color:red;">₹200</p>
-<p style="color:green;">Offer ₹150</p>
-<p style="color:orange;">Save ₹50</p>
+<p style="text-decoration:line-through;color:red;">₹200</p>
+<p style="color:#00ffae;font-weight:bold;">Offer ₹150</p>
+<p style="color:gold;">Save ₹50</p>
 
-<button class="btn" onclick="add('Marj',150)">Add</button>
+<button class="btn" onclick="add('Marj Attar',150)">Add</button>
 </div>
 
 <div class="product">
 <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de">
 <h3>Musk Rijali</h3>
 
-<p style="text-decoration:line-through; color:red;">₹200</p>
-<p style="color:green;">Offer ₹150</p>
-<p style="color:orange;">Save ₹50</p>
+<p style="text-decoration:line-through;color:red;">₹200</p>
+<p style="color:#00ffae;font-weight:bold;">Offer ₹150</p>
+<p style="color:gold;">Save ₹50</p>
 
-<button class="btn" onclick="add('Musk',150)">Add</button>
+<button class="btn" onclick="add('Musk Rijali',150)">Add</button>
 </div>
 
 <div class="product">
@@ -183,22 +187,23 @@ input{
 
 <!-- CART -->
 <div class="cart">
-<h3>🛒 Order</h3>
+
+<h3>🛒 Order Summary</h3>
 
 <p id="items">No items</p>
 <p>Total ₹<span id="total">0</span></p>
 
-<input id="name" placeholder="Name">
+<input id="name" placeholder="Your Name">
 <input id="address" placeholder="Address">
 
-<button class="order" onclick="order()">WhatsApp</button>
+<button class="order" onclick="order()">WhatsApp Order</button>
 
 <br><br>
 
 <button class="pay" onclick="pay()">UPI Pay</button>
 
-<div class="qr">
-<p>Scan</p>
+<div style="text-align:center;margin-top:10px;">
+<p>Scan & Pay</p>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=919946800240@federal">
 </div>
 
@@ -209,14 +214,14 @@ let total=0;
 let list=[];
 
 function add(n,p){
-total+=p;
-list.push(n);
-document.getElementById("total").innerText=total;
-document.getElementById("items").innerText=list.join(",");
+  total+=p;
+  list.push(n);
+  document.getElementById("total").innerText=total;
+  document.getElementById("items").innerText=list.join(", ");
 }
 
 function order(){
-let msg="Order: "+list.join(",")+" Total ₹"+total;
+let msg="🧾 Order: "+list.join(", ")+" | Total ₹"+total;
 window.open("https://wa.me/919946800240?text="+msg);
 }
 
