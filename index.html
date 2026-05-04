@@ -12,12 +12,11 @@ body{
   background:#f8f8f8;
 }
 
-/* 🔥 LUXURY HEADER */
+/* HEADER */
 .header{
   background:
     linear-gradient(135deg, rgba(0,0,0,0.85), rgba(30,30,30,0.85)),
     url('https://images.unsplash.com/photo-1594035910387-fea47794261f');
-
   background-size:cover;
   background-position:center;
   color:white;
@@ -32,7 +31,7 @@ body{
   display:block;
   margin:auto;
   margin-bottom:10px;
-  filter: brightness(0) invert(1); /* white logo */
+  filter: brightness(0) invert(1);
 }
 
 h1{
@@ -115,21 +114,25 @@ input{
 
 <body>
 
+<!-- 🔥 EASY EDIT IMAGE NAMES -->
+<script>
+const img1 = "marj.jpg";
+const img2 = "musk.jpg";
+const img3 = "maryam.jpg";
+</script>
+
 <!-- HEADER -->
 <div class="header">
-
-<img src="./logo.png" class="logo">
-
-<h1>Al Jannah Perfumes</h1>
-<p class="tag">Luxury Attar Collection ✨</p>
-
+  <img src="./logo.png" class="logo">
+  <h1>Al Jannah Perfumes</h1>
+  <p class="tag">Luxury Attar Collection ✨</p>
 </div>
 
 <!-- PRODUCTS -->
 <div class="products">
 
 <div class="product">
-<img src="./marj.jpg">
+<img id="p1">
 <h3>Marj Attar</h3>
 
 <p style="text-decoration:line-through;color:red;">₹200</p>
@@ -140,7 +143,7 @@ input{
 </div>
 
 <div class="product">
-<img src="./musk.jpg">
+<img id="p2">
 <h3>Musk Rijali</h3>
 
 <p style="text-decoration:line-through;color:red;">₹200</p>
@@ -151,7 +154,7 @@ input{
 </div>
 
 <div class="product">
-<img src="./maryam.jpg">
+<img id="p3">
 <h3>Maryam</h3>
 <p>₹150</p>
 <button class="btn" onclick="add('Maryam',150)">Add</button>
@@ -161,7 +164,6 @@ input{
 
 <!-- CART -->
 <div class="cart">
-
 <h3>🛒 Order Summary</h3>
 
 <p id="items">No items</p>
@@ -180,10 +182,15 @@ input{
 <p>Scan & Pay</p>
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=919946800240@federal">
 </div>
-
 </div>
 
 <script>
+// 🔥 IMAGE LOAD
+document.getElementById("p1").src = "./" + img1;
+document.getElementById("p2").src = "./" + img2;
+document.getElementById("p3").src = "./" + img3;
+
+// CART
 let total=0;
 let list=[];
 
