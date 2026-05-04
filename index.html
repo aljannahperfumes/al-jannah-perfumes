@@ -9,34 +9,29 @@
 body{
   margin:0;
   font-family: Arial;
-  background:#f8f8f8;
+  background:#f5f5f5;
 }
 
 /* HEADER */
 .header{
   background:
-    linear-gradient(135deg, rgba(0,0,0,0.85), rgba(30,30,30,0.85)),
-    url('https://images.unsplash.com/photo-1594035910387-fea47794261f');
+  linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+  url('https://images.unsplash.com/photo-1594035910387-fea47794261f');
   background-size:cover;
   background-position:center;
-  color:white;
   text-align:center;
   padding:60px 20px;
+  color:white;
   border-bottom:2px solid gold;
 }
 
-/* LOGO */
 .logo{
-  width:120px;
-  display:block;
-  margin:auto;
-  margin-bottom:10px;
-  filter: brightness(0) invert(1);
+  width:130px;
+  filter:brightness(0) invert(1);
 }
 
 h1{
   color:gold;
-  margin:5px;
 }
 
 .tag{
@@ -46,7 +41,7 @@ h1{
 /* PRODUCTS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
   padding:20px;
 }
@@ -56,17 +51,12 @@ h1{
   padding:15px;
   border-radius:10px;
   text-align:center;
-  box-shadow:0 2px 8px rgba(0,0,0,0.1);
-  transition:0.3s;
-}
-
-.product:hover{
-  transform:translateY(-5px);
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
 .product img{
   width:100%;
-  height:150px;
+  height:160px;
   object-fit:cover;
   border-radius:10px;
 }
@@ -114,16 +104,9 @@ input{
 
 <body>
 
-<!-- 🔥 EASY EDIT IMAGE NAMES -->
-<script>
-const img1 = "marj.jpg";
-const img2 = "musk.jpg";
-const img3 = "maryam.jpg";
-</script>
-
 <!-- HEADER -->
 <div class="header">
-  <img src="./logo.png" class="logo">
+  <img src="logo.png" class="logo">
   <h1>Al Jannah Perfumes</h1>
   <p class="tag">Luxury Attar Collection ✨</p>
 </div>
@@ -132,7 +115,7 @@ const img3 = "maryam.jpg";
 <div class="products">
 
 <div class="product">
-<img id="p1">
+<img src="marj.jpg">
 <h3>Marj Attar</h3>
 
 <p style="text-decoration:line-through;color:red;">₹200</p>
@@ -143,7 +126,7 @@ const img3 = "maryam.jpg";
 </div>
 
 <div class="product">
-<img id="p2">
+<img src="musk.jpg">
 <h3>Musk Rijali</h3>
 
 <p style="text-decoration:line-through;color:red;">₹200</p>
@@ -154,9 +137,10 @@ const img3 = "maryam.jpg";
 </div>
 
 <div class="product">
-<img id="p3">
+<img src="maryam.jpg">
 <h3>Maryam</h3>
 <p>₹150</p>
+
 <button class="btn" onclick="add('Maryam',150)">Add</button>
 </div>
 
@@ -172,11 +156,11 @@ const img3 = "maryam.jpg";
 <input id="name" placeholder="Your Name">
 <input id="address" placeholder="Address">
 
-<button class="order" onclick="order()">WhatsApp Order</button>
+<button class="order" onclick="order()">Order via WhatsApp</button>
 
 <br><br>
 
-<button class="pay" onclick="pay()">UPI Pay</button>
+<button class="pay" onclick="pay()">Pay via UPI</button>
 
 <div style="text-align:center;margin-top:10px;">
 <p>Scan & Pay</p>
@@ -185,24 +169,19 @@ const img3 = "maryam.jpg";
 </div>
 
 <script>
-// 🔥 IMAGE LOAD
-document.getElementById("p1").src = "./" + img1;
-document.getElementById("p2").src = "./" + img2;
-document.getElementById("p3").src = "./" + img3;
-
-// CART
 let total=0;
 let list=[];
 
-function add(n,p){
-  total+=p;
-  list.push(n);
+function add(name,price){
+  total+=price;
+  list.push(name);
+
   document.getElementById("total").innerText=total;
   document.getElementById("items").innerText=list.join(", ");
 }
 
 function order(){
-let msg="🧾 Order: "+list.join(", ")+" | Total ₹"+total;
+let msg="Order: "+list.join(", ")+" | Total ₹"+total;
 window.open("https://wa.me/919946800240?text="+encodeURIComponent(msg));
 }
 
