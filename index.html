@@ -8,123 +8,123 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f5f5f5;
+background:#f5f5f5;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero{
-    height:420px;
-    background:
-    linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),
-    url("https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1200&auto=format&fit=crop");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    border-bottom:4px solid gold;
+height:420px;
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=1400&auto=format&fit=crop");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+border-bottom:4px solid gold;
 }
 
 .hero-content img{
-    width:220px;
-    max-width:90%;
-    display:block;
-    margin:auto;
-    margin-bottom:20px;
-    object-fit:contain;
+width:220px;
+height:220px;
+object-fit:contain;
+display:block;
+margin:auto;
+margin-bottom:20px;
 }
 
 .hero h1{
-    color:gold;
-    font-size:58px;
-    margin-bottom:10px;
+font-size:60px;
+color:gold;
+margin-bottom:10px;
 }
 
 .hero p{
-    color:white;
-    font-size:28px;
+font-size:28px;
+color:white;
 }
 
 /* PRODUCTS */
 
 .products{
-    width:90%;
-    margin:50px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+width:90%;
+margin:50px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
 .card{
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
-    text-align:center;
-    padding-bottom:20px;
-    transition:0.3s;
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+text-align:center;
+padding-bottom:20px;
+transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+transform:translateY(-5px);
 }
 
 .card img{
-    width:100%;
-    height:340px;
-    object-fit:cover;
-    display:block;
+width:100%;
+height:340px;
+object-fit:cover;
+display:block;
 }
 
 .card h2{
-    margin-top:20px;
-    font-size:32px;
+font-size:32px;
+margin-top:20px;
 }
 
 .old{
-    color:red;
-    text-decoration:line-through;
-    font-size:26px;
-    margin-top:10px;
+color:red;
+text-decoration:line-through;
+font-size:26px;
+margin-top:10px;
 }
 
 .offer{
-    color:green;
-    font-size:36px;
-    font-weight:bold;
-    margin-top:10px;
+color:green;
+font-size:38px;
+font-weight:bold;
+margin-top:10px;
 }
 
 .save{
-    color:#d28f00;
-    font-size:24px;
-    margin-top:10px;
+color:#d18b00;
+font-size:24px;
+margin-top:10px;
 }
 
 button{
-    width:85%;
-    padding:15px;
-    margin-top:20px;
-    border:none;
-    border-radius:10px;
-    background:gold;
-    font-size:22px;
-    font-weight:bold;
-    cursor:pointer;
+width:85%;
+padding:15px;
+margin-top:20px;
+border:none;
+border-radius:10px;
+background:gold;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
 }
 
 button:hover{
-    background:#f5c400;
+background:#f5c400;
 }
 
 /* MOBILE */
@@ -132,43 +132,44 @@ button:hover{
 @media(max-width:768px){
 
 .hero{
-    height:330px;
+height:330px;
 }
 
 .hero-content img{
-    width:150px;
+width:150px;
+height:150px;
 }
 
 .hero h1{
-    font-size:36px;
+font-size:36px;
 }
 
 .hero p{
-    font-size:20px;
+font-size:20px;
 }
 
 .card img{
-    height:270px;
+height:270px;
 }
 
 .card h2{
-    font-size:24px;
+font-size:24px;
 }
 
 .old{
-    font-size:20px;
+font-size:20px;
 }
 
 .offer{
-    font-size:28px;
+font-size:28px;
 }
 
 .save{
-    font-size:20px;
+font-size:20px;
 }
 
 button{
-    font-size:18px;
+font-size:18px;
 }
 
 }
@@ -184,7 +185,7 @@ button{
 
 <div class="hero-content">
 
-<img src="Logo.png" alt="Logo">
+<img src="logo.png" alt="Logo">
 
 <h1>Al Jannah Perfumes</h1>
 
@@ -198,7 +199,7 @@ button{
 
 <section class="products">
 
-<!-- PRODUCT 1 -->
+<!-- MARJ -->
 
 <div class="card">
 
@@ -216,13 +217,13 @@ button{
 
 </div>
 
-<!-- PRODUCT 2 -->
+<!-- MARYAM -->
 
 <div class="card">
 
-<img src="musk.jpg" alt="Musk">
+<img src="maryam.jpg" alt="Maryam">
 
-<h2>Musk Rijali</h2>
+<h2>Maryam</h2>
 
 <div class="old">₹200</div>
 
@@ -234,13 +235,13 @@ button{
 
 </div>
 
-<!-- PRODUCT 3 -->
+<!-- MUSK -->
 
 <div class="card">
 
-<img src="maryam.jpg" alt="Maryam">
+<img src="musk.jpg" alt="Musk">
 
-<h2>Maryam</h2>
+<h2>Musk Rijali</h2>
 
 <div class="old">₹200</div>
 
