@@ -3,433 +3,385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Al Jannah Perfumes</title>
 
 <style>
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body{
-    font-family:Segoe UI,sans-serif;
-    background:#0f0f0f;
-    color:white;
+  font-family:Segoe UI,sans-serif;
+  background:#0f0f0f;
+  color:white;
 }
 
-/* HEADER */
-
+/* HEADER BANNER */
 .header{
-    position:relative;
-    text-align:center;
-    padding:140px 20px;
-    background:url('banner.jpg') center/cover no-repeat;
-}
-
-.header::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.65);
-}
-
-.header-content{
-    position:relative;
-    z-index:2;
+  width:100%;
+  min-height:420px;
+  background:
+  linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+  url('banner.jpeg');
+  
+  background-size:cover;
+  background-position:center;
+  
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  
+  padding:40px 20px;
+  border-bottom:3px solid gold;
 }
 
 .logo{
-    width:170px;
-    margin-bottom:15px;
+  width:180px;
+  margin-bottom:15px;
 }
 
-h1{
-    font-size:45px;
-    color:gold;
-    text-shadow:0 0 15px gold;
+.header h1{
+  font-size:48px;
+  color:gold;
+  text-shadow:0 0 10px black;
 }
 
 .tag{
-    color:#ddd;
-    font-size:18px;
-    margin-top:10px;
+  color:#fff;
+  font-size:20px;
+  margin-top:10px;
 }
 
 /* PRODUCTS */
-
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  padding:30px;
 }
 
 .product{
-    background:#1a1a1a;
-    border-radius:18px;
-    overflow:hidden;
-    border:1px solid rgba(255,215,0,0.2);
-    transition:0.4s;
-    box-shadow:0 0 10px rgba(0,0,0,0.4);
+  background:#1b1b1b;
+  border-radius:15px;
+  overflow:hidden;
+  border:1px solid rgba(255,215,0,0.2);
+  transition:0.3s;
+  box-shadow:0 0 10px rgba(0,0,0,0.4);
 }
 
 .product:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 20px gold;
+  transform:translateY(-8px);
+  box-shadow:0 0 18px gold;
 }
 
 .product img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    cursor:pointer;
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  cursor:pointer;
 }
 
 .product-content{
-    padding:18px;
-    text-align:center;
+  padding:15px;
+  text-align:center;
 }
 
-.product h2{
-    margin-bottom:10px;
-    color:gold;
+.product h3{
+  margin-bottom:10px;
 }
 
 .old{
-    color:red;
-    text-decoration:line-through;
-    margin-bottom:5px;
+  color:red;
+  text-decoration:line-through;
 }
 
 .offer{
-    color:#00ffb3;
-    font-size:22px;
-    font-weight:bold;
+  color:#00ffae;
+  font-size:22px;
+  margin:8px 0;
 }
 
 .save{
-    color:gold;
-    margin-top:5px;
+  color:gold;
 }
 
 .btn{
-    margin-top:15px;
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:8px;
-    background:linear-gradient(45deg,gold,#ffcc00);
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:gold;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
 }
 
 .btn:hover{
-    box-shadow:0 0 15px gold;
+  background:white;
 }
 
 /* CART */
-
 .cart{
-    margin:25px;
-    padding:25px;
-    border-radius:15px;
-    background:#161616;
-    border:1px solid rgba(255,215,0,0.2);
+  background:#151515;
+  margin:20px;
+  padding:20px;
+  border-radius:15px;
+  border:1px solid rgba(255,215,0,0.2);
 }
 
 .cart h2{
-    color:gold;
-    margin-bottom:15px;
-}
-
-#items{
-    margin-bottom:10px;
-}
-
-.total{
-    font-size:22px;
-    color:#00ffb3;
-    margin-bottom:15px;
+  color:gold;
+  margin-bottom:15px;
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin-bottom:12px;
-    border:none;
-    border-radius:8px;
-    background:#2a2a2a;
-    color:white;
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
 }
 
-.order-btn{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    background:green;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    margin-bottom:10px;
+.order{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  background:#00c853;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
 }
 
-.pay-btn{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:8px;
-    background:#007bff;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
+.pay{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  background:#1976d2;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
 }
 
-/* MODAL */
-
+/* IMAGE ZOOM */
 .modal{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    justify-content:center;
-    align-items:center;
-    z-index:100;
+  display:none;
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
 }
 
 .modal img{
-    width:90%;
-    max-width:500px;
-    border-radius:15px;
+  width:90%;
+  max-width:500px;
+  border-radius:15px;
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 
-    h1{
-        font-size:30px;
-    }
-
-    .logo{
-        width:130px;
-    }
-
-    .product img{
-        height:220px;
-    }
-
-    .header{
-        padding:100px 15px;
-    }
-
+.header{
+  min-height:320px;
 }
 
+.logo{
+  width:130px;
+}
+
+.header h1{
+  font-size:32px;
+}
+
+.tag{
+  font-size:16px;
+}
+
+.product img{
+  height:220px;
+}
+
+}
 </style>
 </head>
 
 <body>
 
 <!-- HEADER -->
-
 <div class="header">
 
-    <div class="header-content">
+  <img src="logo.png" class="logo">
 
-        <img src="logo.png" class="logo">
+  <h1>Al Jannah Perfumes</h1>
 
-        <h1>Al Jannah Perfumes</h1>
-
-        <p class="tag">
-            Luxury Attar Collection ✨
-        </p>
-
-    </div>
+  <p class="tag">Luxury Attar Collection ✨</p>
 
 </div>
 
 <!-- PRODUCTS -->
-
 <div class="products">
 
-    <!-- PRODUCT 1 -->
+  <!-- PRODUCT 1 -->
+  <div class="product">
 
-    <div class="product">
+    <img src="marj.jpg" onclick="zoom(this.src)">
 
-        <img src="marj.jpg" onclick="zoom(this.src)">
+    <div class="product-content">
 
-        <div class="product-content">
+      <h3>Marj Attar</h3>
 
-            <h2>Marj Attar</h2>
+      <p class="old">₹200</p>
 
-            <div class="old">₹200</div>
+      <p class="offer">Offer ₹150</p>
 
-            <div class="offer">Offer ₹150</div>
+      <p class="save">Save ₹50</p>
 
-            <div class="save">Save ₹50</div>
-
-            <button class="btn"
-            onclick="add('Marj Attar',150)">
-            Add to Cart
-            </button>
-
-        </div>
+      <button class="btn" onclick="add('Marj Attar',150)">
+      Add to Cart
+      </button>
 
     </div>
+  </div>
 
-    <!-- PRODUCT 2 -->
+  <!-- PRODUCT 2 -->
+  <div class="product">
 
-    <div class="product">
+    <img src="musk.jpg" onclick="zoom(this.src)">
 
-        <img src="musk.jpg" onclick="zoom(this.src)">
+    <div class="product-content">
 
-        <div class="product-content">
+      <h3>Musk Rijali</h3>
 
-            <h2>Musk Rijali</h2>
+      <p class="old">₹200</p>
 
-            <div class="old">₹200</div>
+      <p class="offer">Offer ₹150</p>
 
-            <div class="offer">Offer ₹150</div>
+      <p class="save">Save ₹50</p>
 
-            <div class="save">Save ₹50</div>
-
-            <button class="btn"
-            onclick="add('Musk Rijali',150)">
-            Add to Cart
-            </button>
-
-        </div>
+      <button class="btn" onclick="add('Musk Rijali',150)">
+      Add to Cart
+      </button>
 
     </div>
+  </div>
 
-    <!-- PRODUCT 3 -->
+  <!-- PRODUCT 3 -->
+  <div class="product">
 
-    <div class="product">
+    <img src="maryam.jpg" onclick="zoom(this.src)">
 
-        <img src="maryam.jpg" onclick="zoom(this.src)">
+    <div class="product-content">
 
-        <div class="product-content">
+      <h3>Maryam</h3>
 
-            <h2>Maryam</h2>
+      <p class="old">₹200</p>
 
-            <div class="old">₹200</div>
+      <p class="offer">Offer ₹150</p>
 
-            <div class="offer">Offer ₹150</div>
+      <p class="save">Save ₹50</p>
 
-            <div class="save">Save ₹50</div>
-
-            <button class="btn"
-            onclick="add('Maryam',150)">
-            Add to Cart
-            </button>
-
-        </div>
+      <button class="btn" onclick="add('Maryam',150)">
+      Add to Cart
+      </button>
 
     </div>
+  </div>
 
 </div>
 
 <!-- CART -->
-
 <div class="cart">
 
-    <h2>🛒 Your Order</h2>
+<h2>🛒 Order</h2>
 
-    <p id="items">No items added</p>
+<p id="items">No items selected</p>
 
-    <div class="total">
-        Total ₹<span id="total">0</span>
-    </div>
+<br>
 
-    <input type="text"
-    id="name"
-    placeholder="Your Name">
+<h3>Total ₹<span id="total">0</span></h3>
 
-    <input type="text"
-    id="address"
-    placeholder="Your Address">
+<input type="text" id="name" placeholder="Your Name">
 
-    <button class="order-btn"
-    onclick="orderNow()">
-    WhatsApp Order
-    </button>
+<input type="text" id="address" placeholder="Delivery Address">
 
-    <button class="pay-btn"
-    onclick="payNow()">
-    UPI Pay
-    </button>
+<button class="order" onclick="orderNow()">
+WhatsApp Order
+</button>
+
+<button class="pay" onclick="payNow()">
+UPI Pay
+</button>
 
 </div>
 
-<!-- IMAGE ZOOM -->
+<!-- IMAGE MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
 
-<div class="modal"
-id="modal"
-onclick="closeModal()">
-
-    <img id="modalImg">
+<img id="modalImg">
 
 </div>
 
 <script>
 
 let total = 0;
-let cart = [];
+let items = [];
 
 function add(name,price){
 
-    cart.push(name);
+  items.push(name);
 
-    total += price;
+  total += price;
 
-    document.getElementById("items").innerText =
-    cart.join(", ");
+  document.getElementById("items").innerText =
+  items.join(", ");
 
-    document.getElementById("total").innerText =
-    total;
+  document.getElementById("total").innerText =
+  total;
 
 }
 
 function orderNow(){
 
-    let name =
-    document.getElementById("name").value;
+let name =
+document.getElementById("name").value;
 
-    let address =
-    document.getElementById("address").value;
+let address =
+document.getElementById("address").value;
 
-    let msg =
-    "AL JANNAH PERFUMES ORDER%0A%0A" +
+let msg =
+"🛍️ AL JANNAH PERFUMES ORDER%0A%0A" +
+"Items: " + items.join(", ") + "%0A" +
+"Total: ₹" + total + "%0A" +
+"Name: " + name + "%0A" +
+"Address: " + address;
 
-    "Name: " + name + "%0A" +
-
-    "Address: " + address + "%0A%0A" +
-
-    "Items: " + cart.join(", ") + "%0A" +
-
-    "Total: ₹" + total;
-
-    window.open(
-    "https://wa.me/919946800240?text=" + msg
-    );
+window.open(
+"https://wa.me/919946800240?text=" + msg
+);
 
 }
 
 function payNow(){
 
-    window.location.href =
-    "upi://pay?pa=919946800240@federal&pn=ALJANNAHPERFUMES&am=" + total;
+window.location.href =
+"upi://pay?pa=919946800240@federal&pn=AlJannahPerfumes&am=" + total;
 
 }
 
@@ -437,18 +389,18 @@ function payNow(){
 
 function zoom(src){
 
-    document.getElementById("modal").style.display =
-    "flex";
+document.getElementById("modal").style.display =
+"flex";
 
-    document.getElementById("modalImg").src =
-    src;
+document.getElementById("modalImg").src =
+src;
 
 }
 
 function closeModal(){
 
-    document.getElementById("modal").style.display =
-    "none";
+document.getElementById("modal").style.display =
+"none";
 
 }
 
